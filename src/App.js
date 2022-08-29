@@ -2,6 +2,7 @@
 // import './App.css';
 import React, { useState } from 'react'
 import Navbar from "./Components/Navbar";
+import TextArea from './Components/TextArea';
 
 function App() {
 
@@ -14,12 +15,14 @@ function App() {
       setMode("light");
     }
   }
+ 
 
   return (
-    <>
+    <div >
     <Navbar title="Text Utility" mode={mode} toggleMode={toggleMode}/>
+    <TextArea/>
     Hellow World
-    </>
+    </div>
   );
 }
 
