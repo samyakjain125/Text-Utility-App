@@ -4,9 +4,11 @@ import copy from "copy-to-clipboard";
 
 export default function TextArea() {
     const [text, setText] = useState("Enter your Text Here");
+    const [btnText, setBtnText] = useState("Copy Text")
     const textChanged = (event) =>{
         // console.log("text is changed");
         setText(event.target.value);
+        setBtnText("Copy Text")
     }
     
     const handleUpClick =()=>{
@@ -23,7 +25,8 @@ export default function TextArea() {
     const handleCopy= ()=>{
         copy(text);
         console.log("the text is copied")
-        alert("the text is copied")
+        // alert("the text is copied")
+        setBtnText("Copied!")
 
     }
     
@@ -36,9 +39,10 @@ export default function TextArea() {
         <button type="button" onClick={handleDownClick} className="btn  btn-primary my-3 mx-2">Convert to LowerCase</button>
         <button type="button" className="btn btn-primary my-3 mx-2">Primary</button>
     </div>
-    <h3>Your Text</h3>
-    <p>{text}</p>
-        <button type="button" onClick={handleCopy} className="btn btn-primary ">Copy Text</button>
+    <hr />
+    <div>
+    <p className='fs-5 border rounded-1 px-2'>{text}</p>
+        <button type="button" onClick={handleCopy} className="btn btn-primary ">{btnText}</button></div>
     </div>
   )
 }
